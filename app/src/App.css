@@ -1,0 +1,201 @@
+/* 小红书笔记优化工具 - 样式 */
+
+/* 平滑滚动 */
+html {
+  scroll-behavior: smooth;
+}
+
+/* 输入框特殊样式 */
+textarea {
+  transition: all 0.25s ease;
+}
+
+textarea:focus {
+  border-color: #FF2442 !important;
+  box-shadow: 0 0 0 4px rgba(255, 36, 66, 0.1) !important;
+}
+
+/* 按钮过渡效果 */
+button {
+  transition: all 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* 卡片悬停效果 */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* 标签切换动画 */
+[data-state="active"] {
+  transition: all 0.3s ease;
+}
+
+/* 复制按钮动画 */
+.copy-btn {
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.group:hover .copy-btn {
+  opacity: 1;
+}
+
+/* 进度条动画 */
+.progress-bar {
+  transition: width 0.5s ease;
+}
+
+/* 评分圆环动画 */
+.score-circle {
+  transition: stroke-dasharray 1s ease-out;
+}
+
+/* 浮动动画 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* 脉冲发光 */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 36, 66, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 20px 4px rgba(255, 36, 66, 0.3);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* 淡入上移动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 交错延迟 */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* 旋转动画 */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* 弹跳动画 */
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* 标签悬停效果 */
+.tag-hover {
+  transition: all 0.3s ease;
+}
+
+.tag-hover:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* 问题卡片图标动画 */
+@keyframes icon-shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-5deg); }
+  75% { transform: rotate(5deg); }
+}
+
+.issue-card:hover .issue-icon {
+  animation: icon-shake 0.3s ease;
+}
+
+/* 标题卡片悬停 */
+.title-card {
+  transition: all 0.3s ease;
+}
+
+.title-card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 36, 66, 0.3);
+}
+
+/* 响应式调整 */
+@media (max-width: 640px) {
+  .animate-float {
+    animation: none;
+  }
+  
+  .copy-btn {
+    opacity: 1;
+  }
+}
+
+/* 减少动效支持 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
